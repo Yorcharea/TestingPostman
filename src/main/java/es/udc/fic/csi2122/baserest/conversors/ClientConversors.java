@@ -2,10 +2,7 @@ package es.udc.fic.csi2122.baserest.conversors;
 
 
 import es.udc.fic.csi2122.baserest.dto.ClientDto;
-import es.udc.fic.csi2122.baserest.dto.UserDto;
 import es.udc.fic.csi2122.baserest.entity.Client;
-import es.udc.fic.csi2122.baserest.entity.User;
-
 import java.util.List;
 
 /**
@@ -29,7 +26,6 @@ public class ClientConversors {
      * @return a client dto
      */
     public static ClientDto toClientDto(Client client) {
-        System.out.println(client.getPayMethods());
         return new ClientDto(client.getName(), client.getSurname(), client.getEmail(), client.getPayMethods());
     }
 
@@ -37,7 +33,7 @@ public class ClientConversors {
      * Convert a {@link List} of {@link Client} to a {@link List} of {@link ClientDto}
      *
      * @param clients the list of clients entities
-     * @return a list of user dtos
+     * @return a list of client dtos
      */
     public static List<ClientDto> toClientDtoList(List<Client> clients) {
         return clients.stream().map(ClientConversors::toClientDto).toList();
@@ -50,7 +46,6 @@ public class ClientConversors {
      * @return a client entity without id
      */
     public static Client toClient(ClientDto client) {
-        System.out.println(client.payMethods());
         return new Client(client.name(), client.surname(), client.email(), client.payMethods());
     }
 }

@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 import es.udc.fic.csi2122.baserest.conversors.ClientConversors;
 import es.udc.fic.csi2122.baserest.dto.ClientDto;
 import es.udc.fic.csi2122.baserest.entity.Client;
-import es.udc.fic.csi2122.baserest.repository.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +24,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import es.udc.fic.csi2122.baserest.conversors.UserConversors;
-import es.udc.fic.csi2122.baserest.dto.UserDto;
-import es.udc.fic.csi2122.baserest.entity.User;
 import es.udc.fic.csi2122.baserest.repository.ClientRepository;
 
 
@@ -119,7 +115,7 @@ public class ClientRestController {
         return ResponseEntity.ok(ClientConversors.toClientDtoList(clients));
     }
 
-    @PutMapping("/client/{id}")
+    @PutMapping(value="{id}")
     Client updateClient(@PathVariable(value = "id") Long clientId,
                         @RequestBody Client newClient) {
 

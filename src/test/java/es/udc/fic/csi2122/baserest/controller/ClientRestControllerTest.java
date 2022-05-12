@@ -65,7 +65,6 @@ public class ClientRestControllerTest {
         var client = new ClientDto("Jorge", "Arias","Ronda de Outeiro,257,4ºA","PayPal");
         var client2 = new ClientDto("Pepito", "Gómez","Rua da Concordancia,5, 2ºA","Tarjeta de Credito, Paypal");
         restTemplate.postForObject(baseUrl + "/new", client, Long.class);
-        System.out.println(baseUrl);
         restTemplate.postForObject(baseUrl + "/new", client2, Long.class);
         var response = getForList(restTemplate, baseUrl + "/all", ClientDto.class);
 
@@ -83,7 +82,7 @@ public class ClientRestControllerTest {
         //Aqui se crea bien
         Map< String, Long > params = new HashMap< String, Long >();
         params.put("id", Long.getLong("1"));
-        restTemplate.put(baseUrl+"/client/{id}"+id,updateClient, params);
+        restTemplate.put(baseUrl+"/{id}"+id,updateClient, params);
 
         var response2 = getForList(restTemplate, baseUrl + "/all", ClientDto.class);
 
